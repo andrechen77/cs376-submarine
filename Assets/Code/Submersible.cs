@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Submersible : MonoBehaviour {
     public float enginePower;
+    public float rollSpeed;
+    public float pitchSpeed;
 
     Rigidbody rb;
 
@@ -20,9 +22,9 @@ public class Submersible : MonoBehaviour {
 
         float forwardVel = Vector3.Dot(rb.velocity, transform.up);
 
-        float rollTorque = -forwardVel * rollInput;
+        float rollTorque = -forwardVel * rollInput * rollSpeed;
         rb.AddTorque(transform.up * rollTorque);
-        float pitchTorque = forwardVel * pitchInput;
+        float pitchTorque = forwardVel * pitchInput * pitchSpeed;
         rb.AddTorque(transform.right * pitchTorque);
     }
 
