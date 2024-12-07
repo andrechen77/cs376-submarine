@@ -281,6 +281,7 @@ MonoBehaviour:
   enginePower: 20
   rollSpeed: 0.05
   pitchSpeed: 0.05
+  sidewaysDragFactor: 1
 --- !u!54 &451467938
 Rigidbody:
   m_ObjectHideFlags: 0

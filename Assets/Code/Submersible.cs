@@ -6,6 +6,7 @@ public class Submersible : MonoBehaviour {
     public float enginePower;
     public float rollSpeed;
     public float pitchSpeed;
+    public float sidewaysDragFactor;
 
     Rigidbody rb;
 
@@ -26,6 +27,9 @@ public class Submersible : MonoBehaviour {
         rb.AddTorque(transform.up * rollTorque);
         float pitchTorque = forwardVel * pitchInput * pitchSpeed;
         rb.AddTorque(transform.right * pitchTorque);
+
+        Vector3 sidewaysVel = rb.velocity - forwardVel * transform.up;
+        rb.AddForce(-sidewaysDragFactor * sidewaysVel);
     }
 
     void OnDrawGizmos() {
