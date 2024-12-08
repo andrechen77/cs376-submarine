@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 451467936}
-  offset: {x: 0, y: -10, z: 0}
+  offset: {x: 0, y: -1, z: 1}
   smoothSpeed: 5
 --- !u!81 &127490744
 AudioListener:
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 451467938}
   - component: {fileID: 451467937}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Missile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -372,9 +372,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enginePower: 20
-  rollInput: 0
-  pitchSpeed: 0.1
+  rollInput: 0.3
+  pitchSpeed: 0.3
   sidewaysDragFactor: 1
+  explosionSound: {fileID: 8300000, guid: 7d3336b3d58d72d418ff4da13cc850b6, type: 3}
 --- !u!54 &451467938
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -540,6 +541,7 @@ MonoBehaviour:
   circlingVictim: {fileID: 451467935}
   circlingDistance: 500
   enginePower: 2
+  sonar: {fileID: 8300000, guid: b50be3cecd8b2914ab947fbea19c2746, type: 3}
 --- !u!135 &1091657112
 SphereCollider:
   m_ObjectHideFlags: 0

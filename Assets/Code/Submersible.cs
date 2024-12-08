@@ -7,6 +7,7 @@ public class Submersible : MonoBehaviour {
     public float rollInput;
     public float pitchSpeed;
     public float sidewaysDragFactor;
+    public AudioClip explosionSound;
 
     Rigidbody rb;
 
@@ -30,6 +31,13 @@ public class Submersible : MonoBehaviour {
 
         Vector3 sidewaysVel = rb.velocity - forwardVel * transform.up;
         rb.AddForce(-sidewaysDragFactor * sidewaysVel);
+    }
+
+    internal void OnCollisionEnter(Collision collision) {
+        if (explosionSound != null) {
+            AudioSource.PlayClipAtPoint(explosionSound, transform.position);
+        }
+        Destroy(gameObject);
     }
 
     void OnDrawGizmos() {

@@ -35,6 +35,9 @@ public class Target : MonoBehaviour
     }
 
     private void Retarget() {
+        if (circlingVictim == null) {
+            return;
+        }
         currentTarget = circlingVictim.transform.position + circlingDistance * Random.insideUnitSphere;
     }
 

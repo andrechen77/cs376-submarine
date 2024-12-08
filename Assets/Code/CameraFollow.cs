@@ -16,6 +16,10 @@ public class CameraFollow : MonoBehaviour
 
         transform.position = Vector3.Lerp(transform.position, targetPosition, smoothSpeed * Time.deltaTime);
 
-        transform.LookAt(target.position, target.forward);
+        Vector3 lookAt = target.position;
+        if (target.gameObject.TryGetComponent<Rigidbody>(out Rigidbody rb)) {
+            lookAt += rb.velocity * 100;
+        }
+        transform.LookAt(lookAt, target.forward);
     }
 }
