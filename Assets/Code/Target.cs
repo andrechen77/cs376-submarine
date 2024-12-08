@@ -19,7 +19,7 @@ public class Target : MonoBehaviour
         lastRetargetTime = float.NegativeInfinity;
     }
 
-    internal void Update() {
+    internal void FixedUpdate() {
         if (Time.time >= lastRetargetTime + retargetInterval) {
             lastRetargetTime = Time.time;
             Retarget();
@@ -43,6 +43,8 @@ public class Target : MonoBehaviour
 
     internal void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.TryGetComponent<Submersible>(out Submersible player)) {
+            FindObjectOfType<GameMaster>().Win();
+            
             Destroy(gameObject);
         }
     }

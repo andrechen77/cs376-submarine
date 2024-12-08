@@ -37,6 +37,9 @@ public class Submersible : MonoBehaviour {
         if (explosionSound != null) {
             AudioSource.PlayClipAtPoint(explosionSound, transform.position);
         }
+        if (!collision.gameObject.GetComponent<Target>()) {
+            FindObjectOfType<GameMaster>().Lose();
+        }
         Destroy(gameObject, 0.1f);
     }
 
