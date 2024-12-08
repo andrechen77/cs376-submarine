@@ -9,6 +9,7 @@ public class Target : MonoBehaviour
     public GameObject circlingVictim;
     public float circlingDistance;
     public float enginePower;
+    public AudioClip sonar;
 
     private float lastRetargetTime;
     private Rigidbody rb;
@@ -22,6 +23,11 @@ public class Target : MonoBehaviour
         if (Time.time >= lastRetargetTime + retargetInterval) {
             lastRetargetTime = Time.time;
             Retarget();
+
+            // hijack the retarget timer for pings as well
+            if (sonar != null) {
+                AudioSource.PlayClipAtPoint(sonar, transform.position);
+            }
         }
 
         Vector3 direction = (currentTarget - transform.position).normalized;
@@ -29,7 +35,6 @@ public class Target : MonoBehaviour
     }
 
     private void Retarget() {
-        Debug.Log("retargeting");
         currentTarget = circlingVictim.transform.position + circlingDistance * Random.insideUnitSphere;
     }
 
