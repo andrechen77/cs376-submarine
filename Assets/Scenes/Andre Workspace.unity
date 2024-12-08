@@ -397,7 +397,7 @@ MonoBehaviour:
   currentTarget: {x: 0, y: 0, z: 0}
   circlingVictim: {fileID: 451467935}
   circlingDistance: 500
-  enginePower: 2
+  enginePower: 20
   sonar: {fileID: 8300000, guid: b50be3cecd8b2914ab947fbea19c2746, type: 3}
 --- !u!135 &1091657112
 SphereCollider:
@@ -630,6 +630,10 @@ PrefabInstance:
     - target: {fileID: 2124565196721871737, guid: 5ed754d5426925e43b7f76c0b1d3a4e9, type: 3}
       propertyPath: m_Name
       value: Missile
+      objectReference: {fileID: 0}
+    - target: {fileID: 5475816709692830191, guid: 5ed754d5426925e43b7f76c0b1d3a4e9, type: 3}
+      propertyPath: sidewaysDragFactor
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
