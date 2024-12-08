@@ -175,7 +175,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3337886846875923110}
-  - component: {fileID: 43235264063796937}
   - component: {fileID: 4115893255839916292}
   m_Layer: 0
   m_Name: Rocket
@@ -209,21 +208,6 @@ Transform:
   - {fileID: 6561407078305579785}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &43235264063796937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2673272082389575708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 407772052f131eb41b42ef032936b147, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enginePower: 20
-  rollSpeed: 0.05
-  pitchSpeed: 0.05
 --- !u!54 &4115893255839916292
 Rigidbody:
   m_ObjectHideFlags: 0
