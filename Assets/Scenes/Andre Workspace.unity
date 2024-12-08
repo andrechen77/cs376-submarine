@@ -372,8 +372,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enginePower: 20
-  rollSpeed: 0.05
-  pitchSpeed: 0.05
+  rollInput: 0
+  pitchSpeed: 0.1
   sidewaysDragFactor: 1
 --- !u!54 &451467938
 Rigidbody:
@@ -385,7 +385,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 1
-  m_AngularDrag: 1
+  m_AngularDrag: 10
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Submersible : MonoBehaviour {
     public float enginePower;
-    public float rollSpeed;
+    public float rollInput;
     public float pitchSpeed;
     public float sidewaysDragFactor;
 
@@ -23,7 +23,7 @@ public class Submersible : MonoBehaviour {
 
         float forwardVel = Vector3.Dot(rb.velocity, transform.up);
 
-        float rollTorque = -forwardVel * rollInput * rollSpeed;
+        float rollTorque = -forwardVel * rollInput * this.rollInput;
         rb.AddTorque(transform.up * rollTorque);
         float pitchTorque = forwardVel * pitchInput * pitchSpeed;
         rb.AddTorque(transform.right * pitchTorque);
