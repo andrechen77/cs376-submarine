@@ -37,7 +37,7 @@ public class Submersible : MonoBehaviour {
         if (explosionSound != null) {
             AudioSource.PlayClipAtPoint(explosionSound, transform.position);
         }
-        Destroy(gameObject);
+        Destroy(gameObject, 0.1f);
     }
 
     void OnDrawGizmos() {
