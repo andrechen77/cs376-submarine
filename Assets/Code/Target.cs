@@ -11,12 +11,14 @@ public class Target : MonoBehaviour
     public float enginePower;
     public AudioClip sonar;
 
+    private AudioSource sonarSource;
     private float lastRetargetTime;
     private Rigidbody rb;
 
     internal void Start() {
         rb = GetComponent<Rigidbody>();
         lastRetargetTime = float.NegativeInfinity;
+        sonarSource = GetComponentInChildren<AudioSource>();
     }
 
     internal void FixedUpdate() {
@@ -25,8 +27,8 @@ public class Target : MonoBehaviour
             Retarget();
 
             // hijack the retarget timer for pings as well
-            if (sonar != null) {
-                AudioSource.PlayClipAtPoint(sonar, transform.position);
+            if (sonar != null && sonarSource != null) {
+                sonarSource.Play();
             }
         }
 

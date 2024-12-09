@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameMaster : MonoBehaviour
 {
     public TextMeshProUGUI centerPrompt;
+    public TextMeshProUGUI cornerPrompt;
 
     public void Win() {
         centerPrompt.text = "You win!";
@@ -13,5 +14,9 @@ public class GameMaster : MonoBehaviour
 
     public void Lose() {
         centerPrompt.text = "You lose!";
+    }
+
+    public void IndicateFuel(float amt) {
+        cornerPrompt.text = $"Fuel: {amt}";
     }
 }

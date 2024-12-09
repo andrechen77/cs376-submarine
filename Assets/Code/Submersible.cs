@@ -1,18 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Submersible : MonoBehaviour {
     public float enginePower;
+    public float fuel;
     public float rollInput;
     public float pitchSpeed;
     public float sidewaysDragFactor;
     public AudioClip explosionSound;
+    public float fuelSpawnInterval;
+    public float fuelSpawnRadius;
+    public GameObject fuelPrefab;
+
+    private float timeSinceLastFuelSpawn;
+
+    private GameMaster gameMaster;
 
     Rigidbody rb;
 
     internal void Start() {
         rb = GetComponent<Rigidbody>();
+        timeSinceLastFuelSpawn = float.NegativeInfinity;
+        gameMaster = FindObjectOfType<GameMaster>();
     }
 
     internal void FixedUpdate() {
@@ -20,7 +31,7 @@ public class Submersible : MonoBehaviour {
         float rollInput = Input.GetAxis("Horizontal");
         float pitchInput = Input.GetAxis("Vertical");
 
-        rb.AddForce(thrustInput * enginePower * transform.up);
+        Thrust(thrustInput);
 
         float forwardVel = Vector3.Dot(rb.velocity, transform.up);
 
@@ -38,9 +49,40 @@ public class Submersible : MonoBehaviour {
             AudioSource.PlayClipAtPoint(explosionSound, transform.position);
         }
         if (!collision.gameObject.GetComponent<Target>()) {
-            FindObjectOfType<GameMaster>().Lose();
+            gameMaster.Lose();
         }
         Destroy(gameObject, 0.1f);
+    }
+
+    internal void Update() {
+        if (fuel == 0 && rb.velocity.sqrMagnitude < 0.01) {
+            gameMaster.Lose();
+        }
+
+        gameMaster.IndicateFuel(fuel);
+
+        if (Time.time > timeSinceLastFuelSpawn + fuelSpawnInterval) {
+            timeSinceLastFuelSpawn = Time.time;
+            
+            Vector3 spawnAt = transform.position + fuelSpawnRadius * Random.insideUnitSphere;
+            if (spawnAt.y < 0) {
+                spawnAt.y = -spawnAt.y;
+            }
+            Instantiate(fuelPrefab, spawnAt, Quaternion.identity);
+        }
+    }
+
+    internal void Thrust(float thrustInput) {
+        fuel -= Mathf.Abs(thrustInput);
+        if (fuel > 0) {
+            rb.AddForce(thrustInput * enginePower * transform.up);
+        } else {
+            fuel = 0;
+        }
+    }
+
+    public void AddFuel(float deltaFuel) {
+        fuel += deltaFuel;
     }
 
     void OnDrawGizmos() {
