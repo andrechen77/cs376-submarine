@@ -1,6 +1,6 @@
 INSTRUCTIONS:
-You are a torpedo whose goal is to hit its target. Follow the pinging sound (may want spatial headphones or just look at the target's position in the scene if you can't find it). WATCH OUT! You have limited fuel, so be sure to collect more by flying through purple cylinders.
-We recommend collecting fuel first to practice flying and build up your fuel thing, then orient yourself in random ways to try to hear which direction the target is, then go (Note: the target might be above  you!).
+You are a torpedo whose goal is to hit its target. The target is initially thousands of meters away. Follow the pinging sound (may want spatial headphones or just look at the target's position in the scene if you are within sight distance). WATCH OUT! You have limited fuel, so be sure to collect more by flying through purple cylinders.
+We recommend collecting fuel first to practice flying and build up your fuel thing, then orient yourself in random ways to try to hear which direction the target is, then go (Note: the target might be above you!).
 
 CONTROLS:
 

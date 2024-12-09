@@ -1,3 +1,5 @@
 CREDITS:
+Explosion sound: https://opengameart.org/content/rockbreaking
 Fog Script: https://github.com/GarrettGunnell/Post-Processing/tree/main/Assets/Fog
 Missile Object: https://www.cgtrader.com/items/599467/download-page
+Sonar sound: https://www.soundsnap.com/science_fiction_sonar_ping_01

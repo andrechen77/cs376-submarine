@@ -2105,7 +2105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fogShader: {fileID: 4800000, guid: 1a8b7a335ae27234e9ce56260d950035, type: 3}
   fogColor: {r: 0, g: 0.06432242, b: 0.1981132, a: 0}
-  fogDensity: 0.002
+  fogDensity: 0.003
   fogOffset: 0
 --- !u!1 &130876339
 GameObject:
@@ -15800,7 +15800,7 @@ MonoBehaviour:
   retargetInterval: 5
   currentTarget: {x: 0, y: 0, z: 0}
   circlingVictim: {fileID: 451467935}
-  circlingDistance: 800
+  circlingDistance: 500
   enginePower: 7
   sonar: {fileID: 8300000, guid: b50be3cecd8b2914ab947fbea19c2746, type: 3}
 --- !u!135 &1091657112
@@ -15883,7 +15883,7 @@ Transform:
   m_GameObject: {fileID: 1091657109}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 200, y: 500, z: 2000}
+  m_LocalPosition: {x: 200, y: 500, z: 1000}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children: []
